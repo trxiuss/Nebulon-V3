@@ -1,0 +1,46 @@
+.admin-access-denied {
+    width: min(100%, 35rem);
+    min-height: 18.75rem;
+    margin: clamp(1.5rem, 8vh, 5rem) auto 0;
+    padding: clamp(1.75rem, 5vw, 2.875rem);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.375rem;
+    border: 1px solid var(--admin-line);
+    border-radius: var(--admin-radius);
+    background: var(--admin-panel2);
+}
+
+.admin-access-denied-icon {
+    width: 3.25rem;
+    height: 3.25rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--admin-line2);
+    border-radius: 0.875rem;
+    color: var(--admin-text);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.admin-access-denied h1 {
+    font-size: clamp(1.625rem, 4vw, 2.25rem);
+    font-weight: 700;
+}
+
+.admin-access-denied p {
+    margin-top: 0.5rem;
+    color: var(--admin-text2);
+    line-height: 1.6;
+}
+
+.admin-access-denied { margin-top: clamp(0.25rem, 2vh, 1.25rem); }
+
+.admin-access-denied {
+    border-color: rgba(230, 234, 239, 0.095);
+    background: linear-gradient(145deg, rgba(27, 28, 31, 0.9), rgba(13, 14, 15, 0.92));
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.045), 0 1.125rem 2.875rem rgba(0, 0, 0, 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}

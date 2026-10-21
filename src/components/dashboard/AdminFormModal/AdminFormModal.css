@@ -1,0 +1,21 @@
+.admin-form-modal > .admin-modal-head { flex-shrink: 0; }
+
+.admin-form-modal .admin-modal-head h2 {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.admin-form-modal-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0 -1.375rem -1.375rem;
+  padding: 0.1875rem 1.375rem 1.375rem;
+}
+
+@media (max-width: 600px) {
+  .admin-form-modal-body {
+    margin: 0 -1rem -1rem;
+    padding: 0.1875rem 1rem 1rem;
+  }
+}

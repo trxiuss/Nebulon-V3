@@ -1,0 +1,143 @@
+.login-captcha {
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015)), #101014;
+    transition: background 0.7s ease, border-color 0.7s ease;
+    overflow: hidden;
+}
+
+.login-captcha-row {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.8125rem 1rem;
+}
+
+.login-captcha-icon {
+    flex: 0 0 auto;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.03);
+    color: #d6d6dc;
+    transition: color 0.6s ease, border-color 0.6s ease, background 0.6s ease;
+}
+
+.login-captcha-spin { animation: loginCaptchaSpin 0.9s linear infinite; }
+
+@keyframes loginCaptchaSpin { to { transform: rotate(360deg); } }
+
+.login-captcha-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    text-align: left;
+}
+
+.login-captcha-text strong {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #ececf0;
+    line-height: 1.25;
+}
+
+.login-captcha-text small {
+    font-size: 0.8125rem;
+    color: #8b8b95;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.login-captcha-brand {
+    flex: 0 0 auto;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #4d4d56;
+    transition: color 0.6s ease;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+.login-captcha-retry {
+    cursor: pointer;
+    color: #ffc9d6;
+}
+
+.login-captcha.is-passed {
+    background: #0f1514;
+    border-color: #1e4a3a;
+}
+
+.login-captcha.is-passed .login-captcha-icon {
+    color: #6fe0b4;
+    border-color: #1f5a45;
+    background: rgba(70, 200, 150, 0.08);
+}
+
+.login-captcha.is-passed .login-captcha-brand { color: #7be3b8; }
+
+.login-captcha-check {
+    stroke-dasharray: 24;
+    stroke-dashoffset: 24;
+    animation: loginCaptchaCheck 0.6s 0.1s ease forwards;
+}
+
+@keyframes loginCaptchaCheck { to { stroke-dashoffset: 0; } }
+
+.login-captcha.is-error {
+    background: #21111a;
+    border-color: #3f202b;
+}
+
+.login-captcha.is-error .login-captcha-icon {
+    color: #ffc9d6;
+    border-color: #4a2733;
+    background: rgba(255, 150, 175, 0.06);
+}
+
+.login-captcha.is-error .login-captcha-text strong,
+.login-captcha.is-error .login-captcha-text small { color: #ffc9d6; }
+
+.login-captcha-expand {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.7s ease;
+}
+
+.login-captcha-expand.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.login-captcha-expand-inner {
+    min-height: 0;
+    overflow: hidden;
+}
+
+.login-captcha-host {
+    display: flex;
+    justify-content: center;
+    padding: 0.125rem 1rem 0.875rem;
+}
+
+.login-captcha-icon svg {
+    width: 1.375rem;
+    height: 1.375rem;
+}
+
+@media (min-width: 1025px) {
+    .login-captcha-icon svg { width: 1.5rem; height: 1.5rem; }
+
+    .login-captcha-host { padding: 0 1rem 0.3125rem; }
+}

@@ -1,0 +1,87 @@
+.admin-user-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: max-content;
+}
+
+.admin-when {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+}
+
+.admin-when .admin-when-time {
+    color: var(--admin-muted);
+    font-size: 0.7812rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.admin-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.8438rem;
+    color: var(--admin-text2);
+    padding: 0.375rem 0.625rem;
+    border: 1px solid var(--admin-line);
+    border-radius: 62.4375rem;
+    transition: border-color 0.2s var(--admin-ease), color 0.2s var(--admin-ease);
+}
+
+.admin-switch:hover { color: var(--admin-text); }
+
+.admin-switch input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.admin-switch .admin-switch-track {
+    position: relative;
+    width: 2.5rem;
+    height: 1.375rem;
+    flex-shrink: 0;
+    border-radius: 62.4375rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--admin-line);
+    transition: background 0.2s var(--admin-ease);
+}
+
+.admin-switch .admin-switch-thumb {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #d4d4d8;
+    transform: translateY(-50%);
+    transition: left 0.2s var(--admin-ease), background 0.2s var(--admin-ease);
+}
+
+.admin-switch input[type="checkbox"]:checked ~ .admin-switch-track { background: rgba(110, 231, 183, 0.35); }
+
+.admin-switch input[type="checkbox"]:checked ~ .admin-switch-track .admin-switch-thumb {
+    left: 1.25rem;
+    background: #ffffff;
+}
+
+.admin-switch input[type="checkbox"]:focus-visible ~ .admin-switch-track {
+    outline: 2px solid var(--admin-text2);
+    outline-offset: 2px;
+}
+
+.admin-switch.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.admin-switch input[type="checkbox"]:checked ~ .admin-switch-track { background: linear-gradient(135deg, #f4f5f6, #8d939b); }
+
+.admin-switch .admin-switch-thumb { background: #e9ebed; }

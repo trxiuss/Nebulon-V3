@@ -1,0 +1,140 @@
+.login-form {
+    display: grid;
+    gap: 1.125rem;
+}
+
+.login-note {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7812rem;
+    color: var(--admin-muted);
+}
+
+.admin-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.admin-input-wrap > i {
+    position: absolute;
+    left: 0.875rem;
+    font-size: 0.8125rem;
+    color: var(--admin-muted);
+    pointer-events: none;
+}
+
+.admin-input-wrap input {
+    padding-left: 2.5rem;
+    padding-right: 2.75rem;
+}
+
+.admin-input-action {
+    position: absolute;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    display: grid;
+    place-items: center;
+    color: var(--admin-text2);
+    transition: background 0.2s var(--admin-ease), color 0.2s var(--admin-ease);
+}
+
+.admin-input-action:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--admin-text);
+}
+
+.login-form .admin-field input {
+    height: 3.125rem;
+    border-color: var(--admin-line);
+    border-radius: 0.75rem;
+    background: rgba(4, 4, 5, 0.7);
+    box-shadow: inset 0 1px 0.1875rem rgba(0, 0, 0, 0.55), 0 1px rgba(255, 255, 255, 0.025);
+}
+
+.login-form .admin-field input:focus {
+    border-color: rgba(220, 225, 231, 0.34);
+    background: rgba(8, 8, 9, 0.92);
+    box-shadow: 0 0 0 0.1875rem rgba(205, 211, 218, 0.07), inset 0 1px 0.1875rem rgba(0, 0, 0, 0.5);
+}
+
+.login-form .admin-btn.primary {
+    min-height: 3.125rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(110deg, #f5f6f7, #aeb3ba 48%, #eff1f2 72%, #979da5);
+    color: #090a0b;
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.78), 0 0.75rem 1.875rem rgba(0, 0, 0, 0.38);
+}
+
+.login-form .admin-btn.primary:hover { box-shadow: inset 0 1px rgba(255, 255, 255, 0.9), 0 0.875rem 2.125rem rgba(0, 0, 0, 0.5); }
+
+.login-alert {
+    animation: loginAlertIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: opacity, transform;
+}
+
+.login-alert.is-closing {
+    animation: loginAlertOut 0.45s ease both;
+}
+
+.login-alert-box {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1.125rem;
+    border-radius: 1rem;
+    background: #21111a;
+    border: 1px solid #3f202b;
+    color: #ffc9d6;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.login-alert-icon { flex: 0 0 auto; }
+
+@keyframes loginAlertIn {
+    from { opacity: 0; transform: translate3d(0, -0.5rem, 0); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes loginAlertOut {
+    from { opacity: 1; transform: translate3d(0, 0, 0); }
+    to   { opacity: 0; transform: translate3d(0, -0.4rem, 0); }
+}
+
+.login-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.admin-input-wrap input { padding-right: 3.25rem; }
+
+.login-form .admin-input-action {
+    right: 0.4375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    font-size: 1.0625rem;
+}
+
+@media (min-width: 1281px) {
+    .admin-input-wrap input { padding-right: 3.75rem; }
+
+    .login-form .admin-input-action {
+        width: 2.875rem;
+        height: 2.875rem;
+        font-size: 1.25rem;
+        border-radius: 0.75rem;
+    }
+}
+
+.login-alert-icon { width: 1.375rem; height: 1.375rem; }

@@ -1,0 +1,36 @@
+.admin-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 0.875rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--admin-line);
+}
+
+.admin-pagination-info,
+.admin-pagination-page {
+    font-size: 0.8125rem;
+    color: var(--admin-muted);
+}
+
+.admin-pagination-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-pagination-num {
+    min-width: 2.375rem;
+    justify-content: center;
+}
+
+.admin-pagination-gap {
+    color: var(--admin-muted);
+    padding: 0 2px;
+}
+
+.admin-pagination-actions { flex-wrap: wrap; }
+
+.admin-pagination .admin-btn { border-radius: 0.625rem; }

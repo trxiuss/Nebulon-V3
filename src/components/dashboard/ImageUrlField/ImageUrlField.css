@@ -1,0 +1,7 @@
+.admin-image-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.admin-image-row input { flex: 1; }

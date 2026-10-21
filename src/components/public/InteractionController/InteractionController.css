@@ -1,0 +1,9 @@
+.card-hover-target {
+    position: relative;
+    isolation: isolate;
+}
+
+.touch-active > img {
+    transform: translateY(-2px) scale(1.06) !important;
+    filter: brightness(1.1) drop-shadow(0 0 0.75rem rgba(255, 255, 255,0.4)) !important;
+}

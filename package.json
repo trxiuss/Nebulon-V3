@@ -1,0 +1,27 @@
+{
+  "name": "nebulon-project",
+  "version": "3.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy",
+    "db:migrate:remote": "wrangler d1 execute nebulon-db --remote --file=./schema.sql"
+  },
+  "dependencies": {
+    "next": "15.5.27",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^15.0.0",
+    "@cloudflare/next-on-pages": "^1.13.5",
+    "wrangler": "^3.99.0"
+  }
+}

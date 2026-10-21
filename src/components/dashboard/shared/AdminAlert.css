@@ -1,0 +1,28 @@
+.admin-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.75rem 0.875rem;
+    border-radius: var(--admin-radius-sm);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.admin-alert.error {
+    background: #21111a;
+    border: 1px solid #3f202b;
+    color: #ffc9d6;
+}
+
+.admin-alert.success {
+    background: #0f1a15;
+    border: 1px solid #1e3f31;
+    color: #a8ecd0;
+}
+
+@keyframes adminFadeUp {
+    from { opacity: 0; transform: translateY(0.875rem); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-alert { animation: adminFadeUp 0.6s var(--admin-ease-premium) both; }

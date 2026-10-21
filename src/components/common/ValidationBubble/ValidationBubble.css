@@ -1,0 +1,56 @@
+.validation-bubble {
+    position: fixed;
+    z-index: 100000;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.8125rem 1rem;
+    border-radius: 0.9375rem;
+    background: #21111a;
+    border: 1px solid #3f202b;
+    color: #ffc9d6;
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.45;
+    box-shadow: 0 1.125rem 2.75rem rgba(0, 0, 0, 0.55), 0 0 1.5rem rgba(255, 150, 175, 0.06);
+    backdrop-filter: blur(1rem);
+    -webkit-backdrop-filter: blur(1rem);
+    animation: validationIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    pointer-events: none;
+}
+
+.validation-bubble svg { flex: 0 0 auto; margin-top: 0.0625rem; }
+
+.validation-bubble::before {
+    content: "";
+    position: absolute;
+    top: -0.4375rem;
+    left: var(--vb-arrow, 1.5rem);
+    width: 0.8125rem;
+    height: 0.8125rem;
+    background: #21111a;
+    border-left: 1px solid #3f202b;
+    border-top: 1px solid #3f202b;
+    transform: rotate(45deg);
+    border-top-left-radius: 0.1875rem;
+}
+
+.validation-bubble.is-closing { animation: validationOut 0.32s ease both; }
+
+@keyframes validationIn {
+    from { opacity: 0; transform: translate3d(0, -0.5rem, 0) scale(0.98); }
+    to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes validationOut {
+    from { opacity: 1; transform: translate3d(0, 0, 0); }
+    to   { opacity: 0; transform: translate3d(0, -0.375rem, 0); }
+}
+
+.field-invalid {
+    border-color: #7a3a4d !important;
+    box-shadow: 0 0 0 3px rgba(255, 150, 175, 0.12) !important;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.validation-bubble svg { width: 1.25rem; height: 1.25rem; }

@@ -1,0 +1,4 @@
+.admin-page-transition > * {
+    animation: none !important;
+    opacity: 1;
+}

@@ -1,0 +1,297 @@
+.contact-card { -webkit-tap-highlight-color: transparent; }
+
+.contact-wrap { max-width: 71.25rem; margin: 0 auto; text-align: center; padding: 2rem 1rem 3.75rem; width: 100%; }
+
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    align-items: stretch;
+    max-width: 71.25rem;
+    margin-inline: auto;
+}
+
+.contact-grid > .contact-card {
+    flex: 0 1 22.5rem;
+    width: min(100%, 22.5rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.contact-grid > .contact-card p { flex: 1; }
+
+.contact-grid > .contact-card .btn-discord { margin-top: auto; }
+
+.contact-empty {
+    max-width: 32.5rem;
+    margin: 0 auto;
+    padding: 1.75rem 1.375rem;
+    border: 1px dashed rgba(205, 205, 205, 0.3);
+    border-radius: 1.125rem;
+    color: var(--text2);
+}
+
+@media (max-width: 900px) {
+    .contact-grid > .contact-card { flex-basis: min(100%, 26.25rem); }
+}
+
+@media (max-width: 640px) {
+    .contact-grid > .contact-card { flex-basis: 100%; width: 100%; }
+}
+
+.contact-card {
+    background: var(--surface); border: 1px solid rgba(205, 205, 205, 0.28);
+    border-radius: 1.25rem; padding: 2.25rem 1.5rem; backdrop-filter: blur(0.875rem);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease), background 0.4s var(--ease);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+html.hover-ready .contact-card:hover,
+.contact-card.touch-active,
+.contact-card.press-parent.touch-active {
+    transform: translateY(-0.375rem) scale(1.015) !important;
+    border-color: #bebebe !important;
+    box-shadow: 0 0 1.75rem rgba(190, 190, 190, 0.35), 0 0.5rem 1.5rem rgba(205, 205, 205, 0.16) !important;
+}
+
+.contact-icon {
+    width: 5.25rem; height: 5.25rem; margin: 0 auto 1.25rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 2.6rem;
+    background: rgba(255, 255, 255, 0.055);
+    color: #c9c9c9;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: color 0.55s var(--ease), background 0.55s var(--ease), border-color 0.55s var(--ease), box-shadow 0.55s var(--ease), transform 0.55s var(--ease);
+}
+
+html.hover-ready .contact-card:hover .contact-icon,
+.contact-card.touch-active .contact-icon,
+.contact-card.press-parent.touch-active .contact-icon {
+    background: var(--contact-soft, rgba(190, 190, 190, 0.16));
+    color: var(--contact-color, #c9c9c9);
+    border-color: var(--contact-border, rgba(201, 201, 201, 0.42));
+    transform: scale(1.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0.875rem var(--contact-glow, rgba(201, 201, 201, 0.3)), 0 0 1.75rem var(--contact-glow, rgba(201, 201, 201, 0.3));
+}
+
+.contact-brand-discord { --contact-color: #ffffff; --contact-soft: #5865f2; --contact-border: rgba(142, 151, 255, 0.72); --contact-glow: rgba(88, 101, 242, 0.42); }
+
+.contact-brand-mail { --contact-color: #ea4335; --contact-soft: rgba(234, 67, 53, 0.12); --contact-border: rgba(234, 67, 53, 0.46); --contact-glow: rgba(234, 67, 53, 0.3); }
+
+.contact-brand-message { --contact-color: #0a84ff; --contact-soft: rgba(10, 132, 255, 0.12); --contact-border: rgba(10, 132, 255, 0.46); --contact-glow: rgba(10, 132, 255, 0.3); }
+
+.contact-brand-phone { --contact-color: #34c759; --contact-soft: rgba(52, 199, 89, 0.12); --contact-border: rgba(52, 199, 89, 0.46); --contact-glow: rgba(52, 199, 89, 0.3); }
+
+.contact-brand-location { --contact-color: #ea4335; --contact-soft: rgba(234, 67, 53, 0.12); --contact-border: rgba(234, 67, 53, 0.46); --contact-glow: rgba(234, 67, 53, 0.3); }
+
+.contact-brand-whatsapp { --contact-color: #25d366; --contact-soft: rgba(37, 211, 102, 0.12); --contact-border: rgba(37, 211, 102, 0.46); --contact-glow: rgba(37, 211, 102, 0.3); }
+
+.contact-brand-telegram { --contact-color: #229ed9; --contact-soft: rgba(34, 158, 217, 0.12); --contact-border: rgba(34, 158, 217, 0.46); --contact-glow: rgba(34, 158, 217, 0.3); }
+
+.contact-brand-instagram { --contact-color: #e4405f; --contact-soft: rgba(228, 64, 95, 0.12); --contact-border: rgba(228, 64, 95, 0.46); --contact-glow: rgba(228, 64, 95, 0.3); }
+
+.contact-brand-github { --contact-color: #f0f6fc; --contact-soft: rgba(240, 246, 252, 0.08); --contact-border: rgba(240, 246, 252, 0.34); --contact-glow: rgba(240, 246, 252, 0.22); }
+
+.contact-brand-globe { --contact-color: #4285f4; --contact-soft: rgba(66, 133, 244, 0.12); --contact-border: rgba(66, 133, 244, 0.46); --contact-glow: rgba(66, 133, 244, 0.3); }
+
+.contact-brand-users { --contact-color: #00b8d9; --contact-soft: rgba(0, 184, 217, 0.12); --contact-border: rgba(0, 184, 217, 0.46); --contact-glow: rgba(0, 184, 217, 0.3); }
+
+.contact-brand-star { --contact-color: #fbbc04; --contact-soft: rgba(251, 188, 4, 0.12); --contact-border: rgba(251, 188, 4, 0.46); --contact-glow: rgba(251, 188, 4, 0.3); }
+
+.contact-card h3 { font-size: 1.4rem; margin-bottom: 0.625rem; }
+
+.contact-card p { color: var(--text2); margin-bottom: 1.375rem; font-size: 0.95rem; }
+
+.btn-discord {
+    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.625rem; border-radius: 0.75rem;
+    font-weight: 700; font-size: 1rem;
+    background: linear-gradient(135deg, #bebebe, #8a8a8a); color: #fff;
+    box-shadow: 0 0 1.125rem rgba(190, 190, 190, 0.28);
+    position: relative; overflow: hidden;
+    transition: transform 0.75s var(--ease), box-shadow 0.75s var(--ease), filter 0.75s var(--ease), background 0.75s var(--ease);
+}
+
+html.hover-ready .btn-discord:hover,
+.btn-discord.touch-active {
+    transform: translateY(-0.1875rem) scale(1.02);
+    box-shadow: 0 0.5rem 1.75rem rgba(190, 190, 190,0.5), 0 0 1.375rem rgba(190, 190, 190, 0.35);
+    filter: brightness(1.08);
+    background: linear-gradient(135deg, #bebebe, #8a8a8a) !important;
+    color: #fff !important;
+}
+
+.btn-discord:active {
+    transform: translateY(-1px) scale(1.01);
+    filter: brightness(1.05);
+    background: linear-gradient(135deg, #bebebe, #8a8a8a) !important;
+    box-shadow: 0 0.25rem 1rem rgba(190, 190, 190,0.4);
+    color: #fff !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    html.hover-ready .contact-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    html.hover-ready .contact-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        opacity: 0;
+        background:
+            linear-gradient(90deg, rgba(205, 205, 205,0.75), transparent 18%, transparent 82%, rgba(255, 255, 255,0.75)),
+            linear-gradient(0deg, rgba(255, 255, 255,0.8), transparent 24%);
+        background-size: 100% 2px, 100% 2px;
+        background-position: center bottom, center bottom;
+        background-repeat: no-repeat;
+        transition: opacity 0.45s var(--ease), filter 0.45s var(--ease);
+        z-index: 0;
+    }
+
+    html.hover-ready .contact-card::after {
+        content: "";
+        position: absolute;
+        left: -25%;
+        right: -25%;
+        bottom: -2px;
+        height: 1px;
+        pointer-events: none;
+        opacity: 0;
+        background: linear-gradient(90deg, transparent, rgba(235, 235, 235,0.95), rgba(230, 230, 230,0.95), transparent);
+        box-shadow: 0 0 0.875rem rgba(205, 205, 205,0.7), 0 0 1.75rem rgba(255, 255, 255,0.45);
+        transform: scaleX(0.35);
+        transition: opacity 0.45s var(--ease), transform 0.65s var(--ease);
+        z-index: 2;
+    }
+
+    html.hover-ready .contact-card:hover::before {
+        opacity: 1;
+        filter: drop-shadow(0 0 0.5rem rgba(255, 255, 255,0.4));
+    }
+
+    html.hover-ready .contact-card:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    html.hover-ready .contact-card > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    html.hover-ready .contact-card:hover {
+        border-color: rgba(255, 255, 255,0.62);
+        box-shadow:
+            0 1.125rem 2.875rem rgba(0,0,0,0.34),
+            0 0 1.5rem rgba(205, 205, 205,0.28),
+            0 0 2.75rem rgba(255, 255, 255,0.2);
+    }
+
+    .btn-discord {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-discord::before {
+        content: "";
+        position: absolute;
+        left: -15%;
+        right: -15%;
+        bottom: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(235, 235, 235,0.95), rgba(225, 225, 225,1), rgba(235, 235, 235,0.95), transparent);
+        box-shadow: 0 0 0.75rem rgba(205, 205, 205,0.8);
+        transform: scaleX(0.25);
+        opacity: 0;
+        transition: transform 0.5s var(--ease), opacity 0.35s ease;
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    .btn-discord::after {
+        content: "";
+        position: absolute;
+        inset: 2px 0 2px;
+        border-left: 1px solid rgba(255, 255, 255,0.7);
+        border-right: 1px solid rgba(205, 205, 205,0.7);
+        opacity: 0;
+        box-shadow: inset 0.625rem 0 1.125rem -1.125rem rgba(255, 255, 255,0.95), inset -0.625rem 0 1.125rem -1.125rem rgba(205, 205, 205,0.95);
+        transition: opacity 0.45s var(--ease);
+        pointer-events: none;
+        border-radius: inherit;
+    }
+
+    .btn-discord:hover::before {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+
+    .btn-discord:hover::after { opacity: 1; }
+}
+
+.contact-card.touch-active {
+    transform: translateY(-0.5rem) scale(1.025) !important;
+    border-color: var(--border2) !important;
+    background: var(--surface2) !important;
+    box-shadow:
+        0 1rem 2.5rem rgba(0,0,0,0.38),
+        0 0 1.375rem rgba(205, 205, 205,0.32),
+        0 0 2.5rem rgba(255, 255, 255,0.2) !important;
+}
+
+.touch-active .btn-discord {
+    transform: translateY(-2px) scale(1.02) !important;
+    filter: brightness(1.08) saturate(1.04) !important;
+    box-shadow: 0 0 1rem rgba(255, 255, 255,0.35), 0 0.3125rem 0.875rem rgba(0,0,0,0.22) !important;
+}
+
+.btn-discord.touch-active {
+    transform: translateY(-0.1875rem) scale(1.02) !important;
+    filter: brightness(1.08) !important;
+    background: linear-gradient(135deg, #bebebe, #8a8a8a) !important;
+    color: #fff !important;
+    box-shadow: 0 0.5rem 1.75rem rgba(190, 190, 190,0.5), 0 0 1.375rem rgba(190, 190, 190, 0.35) !important;
+    border-color: transparent !important;
+}
+
+.contact-card.is-selected {
+    transform: none !important;
+    filter: none !important;
+}
+
+@media (hover: none) {
+    .contact-card:active:not(.touch-active) {
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+@media not all {
+    .contact-card,
+    .btn-discord { transition-duration: 0.2s !important; }
+}
+
+.contact-grid { align-items: stretch; }
+
+.contact-grid > .contact-card {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    height: 100%;
+}
+
+.contact-grid > .contact-card p {
+    flex: 1;
+    line-height: 1.55;
+}
+
+.contact-grid > .contact-card .btn-discord,
+.contact-grid > .contact-card a[class*="btn"] { margin-top: auto; }

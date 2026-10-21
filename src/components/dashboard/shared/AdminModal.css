@@ -1,0 +1,223 @@
+.admin-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    min-height: 100dvh;
+    z-index: 10000;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    overflow-y: auto;
+    perspective: 100rem;
+    background: radial-gradient(ellipse 85% 75% at 50% 42%, rgba(16, 17, 19, 0.72), rgba(2, 2, 3, 0.9));
+    backdrop-filter: blur(0.75rem) saturate(115%);
+    -webkit-backdrop-filter: blur(0.75rem) saturate(115%);
+    animation: adminBackdropIn var(--admin-modal-in) var(--admin-ease-soft) both;
+}
+
+.admin-modal-backdrop.admin-modal-blur,
+.admin-modal-backdrop.admin-modal-blur.admin-form-backdrop {
+    background: radial-gradient(ellipse 85% 75% at 50% 42%, rgba(16, 17, 19, 0.72), rgba(2, 2, 3, 0.9));
+    backdrop-filter: blur(0.75rem) saturate(115%);
+    -webkit-backdrop-filter: blur(0.75rem) saturate(115%);
+}
+
+.admin-modal {
+    position: relative;
+    width: min(40rem, 100%);
+    padding: 1.375rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(230, 234, 239, 0.12);
+    background: linear-gradient(145deg, rgba(27, 28, 31, 0.985), rgba(12, 13, 14, 0.99));
+    box-shadow: 0 2.75rem 7.5rem rgba(0, 0, 0, 0.68), 0 0.75rem 2.25rem rgba(0, 0, 0, 0.4), inset 0 1px rgba(255, 255, 255, 0.06);
+    transform-origin: 50% 58%;
+    animation: adminModalIn var(--admin-modal-in) var(--admin-ease-premium) backwards;
+}
+
+.admin-modal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(115deg, transparent 32%, rgba(255, 255, 255, 0.075) 47%, rgba(255, 255, 255, 0.025) 53%, transparent 68%);
+    background-size: 260% 100%;
+    background-repeat: no-repeat;
+    background-position: 135% 0;
+    animation: adminModalSheen 1.3s var(--admin-ease-soft) 0.14s backwards;
+}
+
+.admin-modal > *:nth-child(1) { animation: adminModalItemIn 0.62s var(--admin-ease-premium) 0.1s backwards; }
+
+.admin-modal > *:nth-child(2) { animation: adminModalItemIn 0.62s var(--admin-ease-premium) 0.17s backwards; }
+
+.admin-modal > *:nth-child(3) { animation: adminModalItemIn 0.62s var(--admin-ease-premium) 0.24s backwards; }
+
+.admin-modal > *:nth-child(4) { animation: adminModalItemIn 0.62s var(--admin-ease-premium) 0.31s backwards; }
+
+.admin-modal > *:nth-child(n + 5) { animation: adminModalItemIn 0.62s var(--admin-ease-premium) 0.38s backwards; }
+
+.admin-modal-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.admin-modal-head h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.admin-modal-close {
+    flex: 0 0 auto;
+    width: 2.125rem;
+    height: 2.125rem;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    border: 1px solid rgba(230, 234, 239, 0.12);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+    color: var(--admin-text2);
+    font-size: 0.875rem;
+    transition: transform 0.5s var(--admin-ease-premium), background 0.4s var(--admin-ease-soft), color 0.4s var(--admin-ease-soft), border-color 0.4s var(--admin-ease-soft), box-shadow 0.4s var(--admin-ease-soft);
+}
+
+html.hover-ready .admin-modal-close:hover:not(:disabled) {
+    transform: rotate(90deg) scale(1.06);
+    color: #fff;
+    border-color: rgba(230, 234, 239, 0.3);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+    box-shadow: 0 0 1.125rem rgba(255, 255, 255, 0.12);
+}
+
+.admin-modal-close:active:not(:disabled) { transform: rotate(90deg) scale(0.94); }
+
+.admin-modal-close:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.admin-manual-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.625rem;
+    margin-top: 1.125rem;
+}
+
+.admin-modal .admin-btn { border-radius: 0.625rem; }
+
+.admin-modal-backdrop.is-closing {
+    pointer-events: none;
+    animation: adminBackdropOut var(--admin-modal-out) var(--admin-ease-inout) forwards;
+}
+
+.admin-modal-backdrop.is-closing .admin-modal {
+    animation: adminModalOut var(--admin-modal-out) var(--admin-ease-exit) forwards;
+}
+
+.admin-modal-backdrop.is-closing .admin-modal::before,
+.admin-modal-backdrop.is-closing .admin-modal > * { animation: none; }
+
+@keyframes adminBackdropIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes adminBackdropOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes adminModalIn {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 2.375rem, 0) scale(0.94) rotateX(7deg);
+        filter: blur(0.3125rem);
+    }
+    55% {
+        opacity: 1;
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1) rotateX(0deg);
+        filter: blur(0);
+    }
+}
+
+@keyframes adminModalOut {
+    0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1) rotateX(0deg);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(0, 1.625rem, 0) scale(0.95) rotateX(-4deg);
+        filter: blur(0.25rem);
+    }
+}
+
+@keyframes adminModalItemIn {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1rem, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes adminModalSheen {
+    from {
+        opacity: 1;
+        background-position: 135% 0;
+    }
+    to {
+        opacity: 0;
+        background-position: -35% 0;
+    }
+}
+
+.admin-modal-backdrop.admin-modal-blur.admin-form-backdrop {
+    z-index: 3000;
+    height: 100dvh;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+.admin-modal.admin-form-modal {
+    width: min(60rem, 100%);
+    max-height: calc(100dvh - 2.5rem);
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+@media (max-width: 600px) {
+    .admin-modal-backdrop.admin-form-backdrop { padding: 0.75rem; }
+
+    .admin-modal.admin-form-modal {
+        max-height: calc(100dvh - 1.5rem);
+        padding: 1rem;
+    }
+}
+
+@media not all {
+    .admin-modal-backdrop,
+    .admin-modal,
+    .admin-modal::before,
+    .admin-modal > *,
+    .admin-modal-backdrop.is-closing,
+    .admin-modal-backdrop.is-closing .admin-modal {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+    }
+}

@@ -1,0 +1,28 @@
+.admin-logout {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6875rem 0.75rem;
+    border-radius: var(--admin-radius-sm);
+    border: 1px solid rgba(239, 68, 68, 0.28);
+    background: rgba(239, 68, 68, 0.1);
+    color: #fca5a5;
+    font-size: 0.9062rem;
+    transition: background 0.25s var(--admin-ease);
+}
+
+.admin-logout:hover { background: rgba(239, 68, 68, 0.18); }
+
+.admin-logout {
+    position: relative;
+    transition: background 0.35s var(--admin-ease), color 0.35s var(--admin-ease), border-color 0.35s var(--admin-ease), transform 0.35s var(--admin-ease), box-shadow 0.35s var(--admin-ease);
+}
+
+.admin-logout i {
+    flex: 0 0 1.125rem;
+    transition: transform 0.4s var(--admin-ease), opacity 0.35s var(--admin-ease);
+}
+
+html.hover-ready .admin-logout:hover i { transform: scale(1.12); }
+
+.admin-logout { white-space: nowrap; }

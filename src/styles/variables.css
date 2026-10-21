@@ -1,0 +1,52 @@
+:root {
+    --bg: #020202;
+    --bg2: #060606;
+    --surface: rgba(12, 12, 12, 0.75);
+    --surface2: rgba(18, 18, 18, 0.92);
+    --primary: #ffffff;
+    --primary2: #cdcdcd;
+    --accent: #e0e0e0;
+    --cyan: #ebebeb;
+    --teal: #b0b0b0;
+    --pink: #9a9a9a;
+    --text: #f5f5f5;
+    --text2: #b0b0b0;
+    --muted: #707070;
+    --border: rgba(255, 255, 255, 0.22);
+    --border2: rgba(255, 255, 255, 0.5);
+    --glow: 0 0 1.875rem rgba(205, 205, 205, 0.3);
+    --glow2: 0 0 3.125rem rgba(255, 255, 255, 0.45);
+    --r: 1.125rem;
+    --rs: 0.75rem;
+    --font: var(--font-outfit), system-ui, -apple-system, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+    --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-exit: cubic-bezier(0.55, 0, 0.75, 0.35);
+    --hh: 4rem;
+}
+
+:root {
+    --admin-bg: #050505;
+    --admin-panel: rgba(17, 18, 20, 0.94);
+    --admin-panel2: rgba(20, 21, 23, 0.88);
+    --admin-line: rgba(255, 255, 255, 0.075);
+    --admin-line2: rgba(230, 234, 239, 0.18);
+    --admin-text: #f5f7f8;
+    --admin-text2: #a8adb4;
+    --admin-muted: #717780;
+    --admin-radius: 1rem;
+    --admin-radius-sm: 0.6875rem;
+    --admin-shadow: 0 1.5rem 4.375rem rgba(0, 0, 0, 0.58), inset 0 1px rgba(255, 255, 255, 0.035);
+    --admin-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --admin-ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+    --admin-ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+    --admin-ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+    --admin-ease-exit: cubic-bezier(0.55, 0, 0.75, 0.35);
+    --admin-dur-fast: 0.3s;
+    --admin-dur: 0.46s;
+    --admin-dur-slow: 0.7s;
+    --admin-modal-in: 0.62s;
+    --admin-modal-out: 0.36s;
+}

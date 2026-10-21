@@ -1,0 +1,210 @@
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13.125rem, 1fr));
+    gap: 1rem;
+}
+
+.admin-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 1.125rem;
+    border-radius: var(--admin-radius);
+    border: 1px solid var(--admin-line);
+    background: var(--admin-panel2);
+    transition: transform 0.3s var(--admin-ease), border-color 0.3s var(--admin-ease);
+}
+
+.admin-stat:hover {
+    border-color: var(--admin-line2);
+}
+
+.admin-stat-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--admin-line);
+    font-size: 1rem;
+}
+
+.admin-stat-body {
+    display: grid;
+    gap: 2px;
+}
+
+.admin-stat-body small {
+    font-size: 0.7812rem;
+    color: var(--admin-text2);
+}
+
+.admin-stat-body strong {
+    font-size: 1.625rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.admin-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem;
+    align-items: start;
+}
+
+.admin-recent-card.empty { width: min(100%, 26.25rem); }
+
+.admin-thumb.round { border-radius: 50%; }
+
+.admin-thumb {
+    width: 2.625rem;
+    height: 2.625rem;
+    border-radius: 0.625rem;
+    object-fit: cover;
+    border: 1px solid var(--admin-line);
+    background: rgba(255, 255, 255, 0.05);
+    display: grid;
+    place-items: center;
+    color: var(--admin-muted);
+    flex-shrink: 0;
+}
+
+.admin-list {
+    display: grid;
+    gap: 0.625rem;
+}
+
+.admin-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem;
+    border-radius: var(--admin-radius-sm);
+    border: 1px solid var(--admin-line);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.admin-list-body {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+}
+
+.admin-list-body strong {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.admin-list-body small {
+    font-size: 0.7812rem;
+    color: var(--admin-text2);
+}
+
+.admin-actions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.admin-action {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.875rem;
+    border-radius: var(--admin-radius-sm);
+    border: 1px dashed var(--admin-line2);
+    color: var(--admin-text2);
+    font-size: 0.875rem;
+    transition: color 0.25s var(--admin-ease), background 0.25s var(--admin-ease), border-color 0.25s var(--admin-ease);
+}
+
+.admin-action i {
+    width: 1rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.admin-action:hover {
+    color: var(--admin-text);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 1024px) {
+    .admin-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+    .admin-columns { grid-template-columns: 1fr; }
+
+    .admin-recent-card.empty { width: 100%; }
+}
+
+@media (max-width: 560px) {
+    .admin-actions { grid-template-columns: 1fr; }
+}
+
+.admin-stat { transition: transform 0.45s var(--admin-ease), border-color 0.45s var(--admin-ease), box-shadow 0.45s var(--admin-ease), background 0.45s var(--admin-ease); }
+
+html.hover-ready .admin-stat:hover { transform: scale(1.02); transform-origin: 50% 100%; }
+
+.admin-stat {
+    border-color: rgba(230, 234, 239, 0.095);
+    background: linear-gradient(145deg, rgba(27, 28, 31, 0.9), rgba(13, 14, 15, 0.92));
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.045), 0 1.125rem 2.875rem rgba(0, 0, 0, 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.admin-stat-icon {
+    border-color: rgba(230, 234, 239, 0.12);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025));
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.admin-stat:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.06), 0 0 0 1px rgba(255, 255, 255, 0.06), 0 0 1.625rem rgba(255, 255, 255, 0.09), 0 1.125rem 2.875rem rgba(0, 0, 0, 0.2);
+}
+
+.admin-action { border-radius: 0.625rem; }
+
+.admin-stat { contain: layout style; }
+
+.admin-card.overview-card,
+.admin-stat.overview-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.022) 55%, rgba(255, 255, 255, 0.045));
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.09), inset 0 0 1.75rem rgba(255, 255, 255, 0.02), 0 1.125rem 2.875rem rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(1rem) saturate(135%);
+    -webkit-backdrop-filter: blur(1rem) saturate(135%);
+    transition: transform 0.7s var(--admin-ease-premium), border-color 0.7s var(--admin-ease-premium), box-shadow 0.7s var(--admin-ease-premium), background 0.7s var(--admin-ease-premium) !important;
+}
+
+.admin-card.overview-card:hover,
+.admin-stat.overview-card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.095), rgba(255, 255, 255, 0.03) 55%, rgba(255, 255, 255, 0.06));
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.06), 0 0 1.625rem rgba(255, 255, 255, 0.09), 0 1.125rem 2.875rem rgba(0, 0, 0, 0.22);
+}
+
+html.hover-ready .admin-stat.overview-card:hover {
+    transform: scale(1.028);
+    transform-origin: 50% 100%;
+}
+
+.overview-card .admin-stat-icon {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035));
+    border-color: rgba(255, 255, 255, 0.16);
+    transition: transform 0.7s var(--admin-ease-premium), box-shadow 0.7s var(--admin-ease-premium) !important;
+}
+
+.overview-card:hover .admin-stat-icon { box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 0 1.125rem rgba(255, 255, 255, 0.12); }
+
+.overview-card .admin-list li {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+}

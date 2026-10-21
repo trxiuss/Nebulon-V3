@@ -1,0 +1,143 @@
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6875rem 1.125rem;
+    border-radius: var(--admin-radius-sm);
+    border: 1px solid var(--admin-line2);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--admin-text);
+    font-size: 0.875rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: transform 0.25s var(--admin-ease), background 0.25s var(--admin-ease), border-color 0.25s var(--admin-ease), opacity 0.25s;
+}
+
+.admin-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.admin-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.admin-btn.primary {
+    background: linear-gradient(120deg, #ffffff, #d4d4d8);
+    color: #09090b;
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.admin-btn.primary:hover { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.32), 0 0 1.375rem rgba(255, 255, 255, 0.34), 0 0 3rem rgba(255, 255, 255, 0.15); }
+
+.admin-btn.ghost {
+    background: transparent;
+    color: var(--admin-text2);
+}
+
+.admin-btn.ghost:hover { color: var(--admin-text); }
+
+.admin-btn.danger {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.32);
+    color: #fca5a5;
+}
+
+.admin-btn.danger:hover { background: rgba(239, 68, 68, 0.2); }
+
+.admin-btn.small {
+    padding: 0.4375rem 0.75rem;
+    font-size: 0.7812rem;
+}
+
+.admin-btn.block { width: 100%; }
+
+@media (max-width: 640px) {
+    .admin-btn { white-space: normal; }
+}
+
+.admin-icon-btn {
+  width: 2.375rem;
+  height: 2.375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.625rem;
+  border: 1px solid var(--admin-border, rgba(255, 255, 255, 0.12));
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.admin-icon-btn:hover {
+  border-color: var(--accent, #4f8cff);
+  color: var(--accent, #4f8cff);
+}
+
+.admin-icon-btn.is-active {
+  border-color: var(--accent, #4f8cff);
+  color: var(--accent, #4f8cff);
+  box-shadow: 0 0 0 0.1875rem rgba(79, 140, 255, 0.16);
+}
+
+.admin-btn,
+.admin-icon-btn,
+.admin-ghost-btn { transition: background 0.4s var(--admin-ease-soft), color 0.4s var(--admin-ease-soft), border-color 0.4s var(--admin-ease-soft), transform 0.45s var(--admin-ease-premium), box-shadow 0.4s var(--admin-ease-soft), opacity 0.35s var(--admin-ease-soft); }
+
+html.hover-ready .admin-btn:hover,
+html.hover-ready .admin-icon-btn:hover,
+html.hover-ready .admin-ghost-btn:hover { transform: scale(1.03); }
+
+.admin-btn:active,
+.admin-icon-btn:active,
+.admin-ghost-btn:active { transform: scale(0.97); }
+
+.admin-icon-btn.tiny {
+    width: 1.625rem;
+    height: 1.125rem;
+    min-width: 1.625rem;
+    padding: 0;
+    font-size: 0.625rem;
+    border-radius: 0.375rem;
+}
+
+.admin-icon-btn.tiny:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.admin-btn,
+.admin-icon-btn,
+.admin-ghost-btn { border-radius: 0.625rem; }
+
+.admin-btn.primary {
+    background: linear-gradient(110deg, #f4f5f6, #a9afb6 50%, #e9ebed 74%, #959ba3);
+    color: #090a0b;
+}
+
+.admin-icon-btn {
+    border-color: rgba(230, 234, 239, 0.1);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+}
+
+.admin-icon-btn:hover {
+    border-color: rgba(230, 234, 239, 0.24);
+    color: var(--admin-text);
+}
+
+.admin-icon-btn:active { transform: translate3d(0, 0, 0) scale(0.96); }
+
+.admin-icon-btn.is-active {
+    border-color: rgba(232, 236, 241, 0.2);
+    color: #ffffff;
+    background: linear-gradient(105deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.045));
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.admin-btn.primary { transition: transform 0.45s var(--admin-ease-premium), box-shadow 0.5s var(--admin-ease-soft), background 0.4s var(--admin-ease-soft), border-color 0.4s var(--admin-ease-soft), opacity 0.35s var(--admin-ease-soft); }
+
+html.hover-ready .admin-btn.primary:hover:not(:disabled) { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.32), 0 0 1.375rem rgba(255, 255, 255, 0.34), 0 0 3rem rgba(255, 255, 255, 0.15); }

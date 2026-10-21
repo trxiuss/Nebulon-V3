@@ -1,0 +1,136 @@
+.spark {
+    position: relative;
+    border-radius: var(--r);
+    border: 1px solid rgba(147, 197, 253, 0.22);
+    background: linear-gradient(160deg, rgba(14, 18, 24, 0.92), rgba(8, 9, 11, 0.96));
+    box-shadow: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.5), 0 0 2.5rem rgba(147, 197, 253, 0.08);
+    overflow: hidden;
+    font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    transition: border-color 0.6s var(--ease-premium), box-shadow 0.6s var(--ease-premium);
+}
+
+.spark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(28rem circle at 100% 0%, rgba(147, 197, 253, 0.1), transparent 55%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    html.hover-ready .spark:hover {
+        border-color: rgba(147, 197, 253, 0.45);
+        box-shadow: 0 1.75rem 4rem rgba(0, 0, 0, 0.55), 0 0 3rem rgba(147, 197, 253, 0.16);
+    }
+}
+
+.spark-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    position: relative;
+}
+
+.spark-dots { display: inline-flex; gap: 0.375rem; }
+
+.spark-dots i { width: 0.625rem; height: 0.625rem; border-radius: 50%; background: rgba(255, 255, 255, 0.16); }
+
+.spark-name { font-size: 0.78rem; color: var(--text2); letter-spacing: 0.02em; }
+
+.spark-live {
+    margin-left: auto;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgb(147, 197, 253);
+    box-shadow: 0 0 0.75rem rgba(147, 197, 253, 0.9);
+    animation: sparkPulse 2.4s ease-in-out infinite;
+}
+
+.spark-meta {
+    padding: 0.625rem 1rem 0.25rem;
+    font-size: 0.72rem;
+    color: var(--muted);
+    position: relative;
+}
+
+.spark-tree { list-style: none; margin: 0; padding: 0.5rem 0.625rem 0.75rem; position: relative; }
+
+.spark-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.375rem 0.5rem 0.375rem calc(0.5rem + var(--d) * 1.1rem);
+    border-radius: 0.5rem;
+    font-size: 0.78rem;
+    color: var(--text2);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-0.5rem);
+    transition: opacity 0.6s var(--ease-premium), transform 0.6s var(--ease-premium);
+    transition-delay: calc(var(--i) * 70ms);
+}
+
+.spark.is-live .spark-row { opacity: 1; transform: none; }
+
+.spark-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--w);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 1.1s var(--ease-premium);
+    transition-delay: calc(var(--i) * 70ms + 200ms);
+}
+
+.spark.is-live .spark-fill { transform: scaleX(1); }
+
+.spark-label, .spark-pct { position: relative; white-space: nowrap; }
+
+.spark-label { overflow: hidden; text-overflow: ellipsis; }
+
+.spark-pct { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.spark-row.is-own { color: #dbeafe; }
+
+.spark-row.is-own .spark-fill {
+    background: linear-gradient(90deg, rgba(147, 197, 253, 0.55), rgba(147, 197, 253, 0.12));
+    min-width: 0.375rem;
+}
+
+.spark-row.is-own .spark-pct { color: rgb(147, 197, 253); }
+
+.spark-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(147, 197, 253, 0.06);
+    font-size: 0.78rem;
+    color: var(--text2);
+    position: relative;
+}
+
+.spark-total strong { color: rgb(147, 197, 253); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+
+@keyframes sparkPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+@media (max-width: 480px) {
+    .spark-row { font-size: 0.72rem; padding-right: 0.375rem; }
+    .spark-row { padding-left: calc(0.375rem + var(--d) * 0.7rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spark-row, .spark-fill { transition: none; }
+    .spark-live { animation: none; }
+}

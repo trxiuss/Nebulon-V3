@@ -1,0 +1,131 @@
+html.hover-ready .error-section .btn:hover {
+    transform: translateY(-0.1875rem) scale(1.03) !important;
+    box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.5), 0 0.375rem 1.125rem rgba(0,0,0,0.3) !important;
+    transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), background 0.22s var(--ease) !important;
+    color: #0a0a0a !important;
+}
+
+.error-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    min-height: 58vh;
+    animation: notFoundEnter 0.95s var(--ease-premium) both;
+}
+
+@keyframes notFoundEnter {
+    from {
+        opacity: 0;
+        transform: translateY(1.125rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-code {
+    font-size: clamp(5.5rem, 18vw, 9.5rem);
+    font-weight: 800;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 0.1562rem var(--primary);
+    position: relative;
+    margin-bottom: 0.5rem;
+    animation: f404 5.5s ease-in-out infinite;
+    user-select: none;
+}
+
+.error-code::before,
+.error-code::after {
+    content: '404';
+    position: absolute;
+    inset: 0;
+    opacity: 0.65;
+    z-index: -1;
+}
+
+.error-code::before {
+    color: var(--cyan);
+    animation: gA 2.5s infinite;
+    clip-path: polygon(0 0,100% 0,100% 42%,0 42%);
+}
+
+.error-code::after {
+    color: var(--primary2);
+    animation: gB 2.5s infinite;
+    clip-path: polygon(0 58%,100% 58%,100% 100%,0 100%);
+}
+
+@keyframes f404 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.4375rem);
+    }
+}
+
+@keyframes gA {
+    0%, 100% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(-0.1875rem,2px);
+    }
+
+    50% {
+        transform: translate(2px,-2px);
+    }
+
+    75% {
+        transform: translate(-2px,-2px);
+    }
+}
+
+@keyframes gB {
+    0%, 100% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(0.1875rem,-2px);
+    }
+
+    50% {
+        transform: translate(-2px,2px);
+    }
+
+    75% {
+        transform: translate(0.1875rem,2px);
+    }
+}
+
+.error-title {
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+}
+
+.error-desc {
+    max-width: 26.25rem;
+    color: var(--text2);
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+}
+
+@media not all {
+    .error-section {
+        animation: none;
+    }
+}

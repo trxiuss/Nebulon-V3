@@ -1,0 +1,246 @@
+.bg-animation {
+    position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden;
+    background: var(--bg);
+    transform: translateZ(0);
+    contain: layout paint;
+}
+
+.bg-stack { position: absolute; inset: 0; z-index: 0; isolation: isolate; }
+
+.bg-img {
+    position: absolute; inset: -3%;
+    background-size: cover; background-repeat: no-repeat;
+    z-index: 0;
+    will-change: transform;
+    animation: bgPhotoDrift 70s var(--ease) infinite alternate;
+}
+
+.bg-img.is-front { z-index: 1; }
+
+.bg-img.is-staged { opacity: 0.001; animation-play-state: paused; }
+
+.bg-img.is-incoming {
+    z-index: 2;
+    animation: bgPhotoDrift 70s var(--ease) infinite alternate, bgFadeIn 0.35s var(--ease) both;
+}
+
+@keyframes bgFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.bg-img[data-bg="01"] { background-image: url("/assets/backgrounds/bg-01.webp"); background-position: center 34%; }
+
+.bg-img[data-bg="02"] { background-image: url("/assets/backgrounds/bg-02.webp"); background-position: center 38%; }
+
+.bg-img[data-bg="03"] { background-image: url("/assets/backgrounds/bg-03.webp"); background-position: center 40%; }
+
+.bg-img[data-bg="04"] { background-image: url("/assets/backgrounds/bg-04.webp"); background-position: center 44%; }
+
+.bg-img[data-bg="06"] { background-image: url("/assets/backgrounds/bg-06.webp"); background-position: center 36%; }
+
+@media (max-width: 760px) {
+    .bg-img[data-bg="01"] { background-image: url("/assets/backgrounds/bg-01-mobile.webp"); background-position: center 20%; }
+
+    .bg-img[data-bg="02"] { background-image: url("/assets/backgrounds/bg-02-mobile.webp"); background-position: center 22%; }
+
+    .bg-img[data-bg="03"] { background-image: url("/assets/backgrounds/bg-03-mobile.webp"); background-position: center 24%; }
+
+    .bg-img[data-bg="04"] { background-image: url("/assets/backgrounds/bg-04-mobile.webp"); background-position: center 18%; }
+
+    .bg-img[data-bg="06"] { background-image: url("/assets/backgrounds/bg-06-mobile.webp"); background-position: center 20%; }
+}
+
+@keyframes bgPhotoDrift {
+    from { transform: scale(1); }
+    to   { transform: scale(1.035); }
+}
+
+.nebula {
+    position: absolute; border-radius: 50%; filter: blur(6.25rem); opacity: 0.22;
+    will-change: transform;
+}
+
+.nebula-1 {
+    width: min(70vw, 45rem); height: min(70vw, 45rem);
+    background: radial-gradient(circle, #cdcdcd 0%, transparent 68%);
+    top: -20%; left: -14%;
+    animation: d1 32s ease-in-out infinite alternate;
+}
+
+.nebula-2 {
+    width: min(50vw, 35rem); height: min(50vw, 35rem);
+    background: radial-gradient(circle, #ffffff 0%, transparent 68%);
+    bottom: -16%; right: -12%;
+    animation: d2 36s ease-in-out infinite alternate;
+}
+
+.nebula-3 {
+    width: min(36vw, 23.75rem); height: min(36vw, 23.75rem);
+    background: radial-gradient(circle, #ebebeb 0%, transparent 70%);
+    top: 40%; left: 55%; opacity: 0.12;
+    animation: d3 40s ease-in-out infinite alternate;
+}
+
+@keyframes d1 { to { transform: translate(2.5rem, 1.875rem) scale(1.05); } }
+
+@keyframes d2 { to { transform: translate(-2.25rem, -1.5rem) scale(1.04); } }
+
+@keyframes d3 { to { transform: translate(-1.75rem, 2.25rem); } }
+
+.bg-animation::after {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+        linear-gradient(180deg, rgba(2, 2, 2, 0.72) 0%, rgba(2, 2, 2, 0.22) 20%, rgba(2, 2, 2, 0.32) 55%, rgba(2, 2, 2, 0.78) 100%),
+        radial-gradient(ellipse 70% 52% at 50% 40%, rgba(2, 2, 2, 0.3), transparent 72%);
+}
+
+.silk-waves { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+
+.silk-wave {
+    position: absolute;
+    width: min(78vw, 61.25rem);
+    height: min(58vw, 40rem);
+    will-change: transform;
+    mix-blend-mode: screen;
+}
+
+.silk-wave-a {
+    top: -8%; right: -14%;
+    transform: rotate(-6deg);
+    opacity: 0.5;
+    animation: silkDriftA 46s ease-in-out infinite alternate;
+}
+
+.silk-wave-b {
+    bottom: -12%; left: -16%;
+    transform: rotate(4deg) scaleX(-1);
+    opacity: 0.38;
+    animation: silkDriftB 52s ease-in-out infinite alternate;
+}
+
+.silk-wave .silk-body { filter: blur(1.375rem); }
+
+.silk-wave .silk-edge { filter: blur(1.5px) drop-shadow(0 0 0.75rem rgba(255,255,255,0.5)); }
+
+@keyframes silkDriftA {
+    from { transform: translate(0, 0) rotate(-6deg); }
+    to   { transform: translate(-2.125rem, 1.375rem) rotate(-3deg); }
+}
+
+@keyframes silkDriftB {
+    from { transform: translate(0, 0) rotate(4deg) scaleX(-1); }
+    to   { transform: translate(1.75rem, -1.125rem) rotate(7deg) scaleX(-1); }
+}
+
+@media (max-width: 720px) {
+    .silk-wave { width: 130vw; height: 90vw; }
+
+    .silk-wave-a { top: -14%; right: -30%; }
+
+    .silk-wave-b { bottom: -16%; left: -30%; }
+}
+
+.starfield {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+    opacity: var(--star-depth-fade, 1);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 10%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.18) 72%, transparent 90%);
+    mask-image: linear-gradient(to bottom, black 0%, black 10%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.18) 72%, transparent 90%);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.star-layer {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -62.5rem;
+    width: 125rem;
+    height: 112.5rem;
+    background: transparent;
+    border-radius: 50%;
+}
+
+.star-layer.star-small {
+    width: 1px;
+    height: 1px;
+    box-shadow: 74.375rem 75.5rem #fff, 116.25rem 103.3125rem #fff, 118.25rem 9.5625rem #fff, 6.1875rem 42rem #fff, 27.4375rem 33.25rem #fff, 117.4375rem 5.6875rem #fff, 88.625rem 62.5rem #fff, 42.0625rem 104.8125rem #fff, 9rem 4.1875rem #fff, 20.5625rem 0.3125rem #fff, 98.5rem 25.3125rem #fff, 24.5rem 18.5rem #fff, 41.6875rem 3.5625rem #fff, 101.25rem 12.75rem #fff, 26.625rem 2px #fff, 59.8125rem 6.4375rem #fff, 14.125rem 40.3125rem #fff, 79.9375rem 44.5625rem #fff, 85.0625rem 78.0625rem #fff, 34.1875rem 12.0625rem #fff, 48.5rem 3.25rem #fff, 9.8125rem 12.8125rem #fff, 85.5625rem 13.875rem #fff, 111.5625rem 17.8125rem #fff, 68.4375rem 0.375rem #fff, 101.8125rem 0px #fff, 90.1875rem 9.625rem #fff, 33.5rem 28.5rem #fff, 19.625rem 108.625rem #fff, 55.25rem 1.8125rem #fff, 8.375rem 58.875rem #fff, 51.75rem 45.3125rem #fff, 93.1875rem 71.5rem #fff, 114.6875rem 40.3125rem #fff, 60.8125rem 1.5rem #fff, 108rem 81.8125rem #fff, 39.8125rem 80.125rem #fff, 23.1875rem 46.3125rem #fff, 87.4375rem 81.1875rem #fff, 122.0625rem 0.25rem #fff, 4.0625rem 29.875rem #fff, 68.375rem 98.4375rem #fff, 112.0625rem 15.875rem #fff, 104.5625rem 0.625rem #fff, 90.3125rem 34.3125rem #fff, 77.4375rem 67.6875rem #fff, 101.375rem 38.1875rem #fff, 87.75rem 1.75rem #fff, 101.4375rem 2.375rem #fff, 119.375rem 85.5625rem #fff, 57.125rem 105.875rem #fff, 123.9375rem 0.9375rem #fff, 122.5rem 1.125rem #fff, 39.875rem 8.25rem #fff, 8.625rem 2px #fff, 70.4375rem 46rem #fff, 44.8125rem 17.6875rem #fff, 24.625rem 5.1875rem #fff, 105.5rem 7.6875rem #fff, 35.8125rem 96.25rem #fff, 32rem 18rem #fff, 54.375rem 0.5625rem #fff, 102.375rem 87.5625rem #fff, 40.8125rem 3.8125rem #fff, 35.875rem 40.4375rem #fff, 113.5625rem 1.6875rem #fff, 1.75rem 37.5rem #fff, 109.625rem 34.75rem #fff, 83.9375rem 29.0625rem #fff, 102.9375rem 8.1875rem #fff, 101.1875rem 4.9375rem #fff, 84.5rem 2.1875rem #fff, 75.875rem 25.0625rem #fff, 42.75rem 0px #fff, 17.0625rem 5.625rem #fff, 86.875rem 9.9375rem #fff, 51.5625rem 12.5rem #fff, 6.9375rem 55.5rem #fff, 66.0625rem 2px #fff, 18.9375rem 42.1875rem #fff, 18.625rem 8.5625rem #fff, 47.3125rem 0px #fff, 110.0625rem 42.25rem #fff, 86.5625rem 43.1875rem #fff, 105.3125rem 9.9375rem #fff, 84.8125rem 36.5625rem #fff, 26.6875rem 0.75rem #fff, 69.8125rem 27.5rem #fff, 38.375rem 43.9375rem #fff, 94rem 4.25rem #fff, 112.875rem 15.25rem #fff, 58.1875rem 105.625rem #fff, 96.125rem 0px #fff, 6.3125rem 30.1875rem #fff, 43.8125rem 54.5625rem #fff, 56.125rem 15.5rem #fff, 6.5625rem 4.8125rem #fff, 90.875rem 2.4375rem #fff, 4.25rem 60.625rem #fff, 59.5rem 105.75rem #fff, 79.125rem 92.5625rem #fff, 7.4375rem 0px #fff, 118.6875rem 16.6875rem #fff, 35.0625rem 60.0625rem #fff, 122.125rem 1.0625rem #fff, 95.625rem 66.875rem #fff, 81.375rem 2px #fff, 88.5625rem 80.5rem #fff, 77.3125rem 38.25rem #fff, 88.4375rem 0.3125rem #fff, 79.9375rem 65.4375rem #fff, 43.375rem 23.4375rem #fff, 9.25rem 1.125rem #fff, 91.3125rem 105.875rem #fff, 13.875rem 4.625rem #fff, 30.5rem 9.4375rem #fff, 82.4375rem 65.125rem #fff, 12.25rem 107.5rem #fff, 93.875rem 2.125rem #fff, 20.1875rem 1.625rem #fff, 117.25rem 31.3125rem #fff, 85.0625rem 54.4375rem #fff, 24.5625rem 16.4375rem #fff, 4.8125rem 108.625rem #fff, 114.6875rem 23rem #fff, 91.5rem 64.75rem #fff, 87.4375rem 22.4375rem #fff, 29rem 0.5rem #fff, 67.5rem 95.625rem #fff, 42.5625rem 87.6875rem #fff, 65.0625rem 88.25rem #fff, 73.8125rem 41.4375rem #fff, 116.125rem 0.8125rem #fff, 14.125rem 109.3125rem #fff, 57.375rem 34.5rem #fff, 91.1875rem 81.25rem #fff, 78.4375rem 33.3125rem #fff, 35.1875rem 12.6875rem #fff, 17.125rem 47.75rem #fff, 14.875rem 5.625rem #fff, 67.875rem 2px #fff, 12.3125rem 6.0625rem #fff, 30.0625rem 1.5rem #fff, 105.9375rem 11.625rem #fff, 71.4375rem 10.9375rem #fff, 101.9375rem 76.8125rem #fff, 117.625rem 49.1875rem #fff, 90.625rem 95.875rem #fff, 42.5625rem 47.3125rem #fff, 30.6875rem 6.5rem #fff, 114.875rem 3.6875rem #fff, 31.125rem 2.3125rem #fff, 19.3125rem 32.75rem #fff, 63.375rem 15.5625rem #fff, 118.4375rem 2.1875rem #fff, 35rem 57.75rem #fff, 96.75rem 89.125rem #fff, 42.125rem 61.4375rem #fff, 28.625rem 6.8125rem #fff, 33.75rem 0px #fff, 114.1875rem 10.6875rem #fff, 32.5625rem 32rem #fff, 84.75rem 51.5625rem #fff, 121.375rem 44.9375rem #fff, 47.25rem 61rem #fff, 115.3125rem 96.5625rem #fff, 78.9375rem 95.375rem #fff, 33.75rem 76.125rem #fff, 7.0625rem 16.8125rem #fff, 38.625rem 0.3125rem #fff, 84.625rem 0px #fff, 61.6875rem 77.125rem #fff, 5.6875rem 76.625rem #fff, 49.1875rem 0px #fff, 7.25rem 3.3125rem #fff, 48.625rem 0.75rem #fff, 50.0625rem 73rem #fff, 117.3125rem 53.5625rem #fff, 53.8125rem 45.75rem #fff, 101.75rem 55.5625rem #fff, 56.0625rem 4.8125rem #fff, 124.25rem 70.125rem #fff, 27.4375rem 45.25rem #fff, 36.375rem 76.9375rem #fff, 17.625rem 57.8125rem #fff, 66.0625rem 42rem #fff, 38rem 92rem #fff, 53.8125rem 82.3125rem #fff, 67.25rem 1px #fff, 67.875rem 0.5rem #fff, 90.5625rem 0px #fff, 89.125rem 20.25rem #fff, 58.4375rem 36.5rem #fff, 79.75rem 5.6875rem #fff, 46.6875rem 97.875rem #fff, 31rem 60.625rem #fff, 98.5625rem 15.875rem #fff, 8.1875rem 11.625rem #fff, 79.5rem 58.5rem #fff, 12.4375rem 111.8125rem #fff, 7.8125rem 84rem #fff, 58.0625rem 4.9375rem #fff, 44.25rem 71.9375rem #fff, 21.0625rem 58.5625rem #fff, 71rem 62.75rem #fff, 110.875rem 57.375rem #fff, 91.375rem 25.5rem #fff, 98rem 101.4375rem #fff, 94.6875rem 13.875rem #fff, 22.125rem 90.0625rem #fff, 6.9375rem 10.625rem #fff, 106.8125rem 30.9375rem #fff, 1.625rem 1.5625rem #fff, 104.9375rem 50.4375rem #fff, 67.6875rem 0.75rem #fff, 92.375rem 5.625rem #fff, 72.5625rem 30.625rem #fff, 86.625rem 107.125rem #fff, 70.6875rem 28.3125rem #fff, 88.25rem 0.3125rem #fff, 17.9375rem 1px #fff, 24rem 71.1875rem #fff, 15.25rem 33.8125rem #fff, 61.6875rem 21.25rem #fff, 39rem 1.875rem #fff, 23.75rem 1.3125rem #fff, 54.3125rem 19.375rem #fff, 7.5625rem 1.625rem #fff, 103.125rem 84.25rem #fff, 72.875rem 4.0625rem #fff, 85.5625rem 0px #fff, 41.1875rem 0px #fff, 34.125rem 3.3125rem #fff, 113.5rem 37.625rem #fff, 92.125rem 79.0625rem #fff, 52.375rem 3.875rem #fff, 110.375rem 2.3125rem #fff, 18.75rem 60.5625rem #fff, 74.3125rem 8.0625rem #fff, 120.25rem 84.125rem #fff, 89rem 11.3125rem #fff, 28.875rem 29.5625rem #fff, 37.625rem 101.25rem #fff, 66.0625rem 96.5625rem #fff, 124.8125rem 64rem #fff, 84.5rem 91.25rem #fff, 91.3125rem 106.625rem #fff, 48.3125rem 0.5rem #fff, 55.75rem 70.625rem #fff, 99.8125rem 81.3125rem #fff, 32.0625rem 2.6875rem #fff, 63.125rem 93.3125rem #fff, 26.8125rem 0.75rem #fff, 10.25rem 13.5625rem #fff, 87.125rem 66.375rem #fff, 50.6875rem 82rem #fff, 1.4375rem 6.375rem #fff, 79.0625rem 0.8125rem #fff, 76.25rem 55.9375rem #fff, 7.75rem 92.625rem #fff, 78.75rem 9.3125rem #fff, 10.4375rem 45.6875rem #fff, 26.1875rem 63.625rem #fff, 71.125rem 78.5625rem #fff, 105.25rem 6.625rem #fff, 0px 1.625rem #fff, 6.8125rem 11.4375rem #fff, 91.75rem 21.6875rem #fff, 101.8125rem 80.25rem #fff, 109.6875rem 72.6875rem #fff;
+    opacity: 0.9;
+    animation: starDriftSmall 32s linear infinite alternate;
+}
+
+.star-layer.star-mid {
+    width: 2px;
+    height: 2px;
+    box-shadow: 97.75rem 13.8125rem #fff, 60rem 15.75rem #fff, 25.3125rem 3.0625rem #fff, 50.9375rem 105rem #fff, 54.75rem 18.6875rem #fff, 57.75rem 1px #fff, 67.5rem 9.5rem #fff, 30.375rem 23.8125rem #fff, 78.1875rem 60.5rem #fff, 82.25rem 27rem #fff, 111.1875rem 15.125rem #fff, 60.9375rem 1.1875rem #fff, 59.5rem 58.9375rem #fff, 106rem 52.5625rem #fff, 4.6875rem 26.9375rem #fff, 96.3125rem 5.5rem #fff, 60.3125rem 83.625rem #fff, 63rem 6.3125rem #fff, 5.8125rem 95.875rem #fff, 22.625rem 82.625rem #fff, 98.625rem 0.6875rem #fff, 48.625rem 5.8125rem #fff, 22.625rem 3.6875rem #fff, 25.8125rem 1.125rem #fff, 16.3125rem 84.5625rem #fff, 88.1875rem 67.125rem #fff, 25.3125rem 18.0625rem #fff, 30.375rem 8.4375rem #fff, 83.1875rem 11.1875rem #fff, 38.1875rem 7.5rem #fff, 110.75rem 20.375rem #fff, 98rem 4.9375rem #fff, 44.6875rem 63.0625rem #fff, 78.4375rem 3.0625rem #fff, 49.125rem 14.25rem #fff, 97.5625rem 33rem #fff, 44.6875rem 15.75rem #fff, 30.75rem 30.875rem #fff, 44.625rem 86.3125rem #fff, 14.1875rem 105.9375rem #fff, 75.125rem 9.4375rem #fff, 10.3125rem 102.125rem #fff, 124.0625rem 24.9375rem #fff, 72.9375rem 107.5rem #fff, 13.4375rem 7.25rem #fff, 94.375rem 2.1875rem #fff, 110.5625rem 35.8125rem #fff, 63.875rem 102.4375rem #fff, 38.6875rem 110.1875rem #fff, 83.3125rem 98.3125rem #fff, 16.4375rem 31.3125rem #fff, 85rem 31rem #fff, 17.0625rem 18.4375rem #fff, 112.25rem 0px #fff, 44.375rem 55.5625rem #fff, 56.8125rem 20.9375rem #fff, 77.3125rem 1.375rem #fff, 63.9375rem 0.6875rem #fff, 72.3125rem 69.8125rem #fff, 81.5rem 0px #fff, 7.875rem 69.8125rem #fff, 110.375rem 102.8125rem #fff, 63.5rem 13.625rem #fff, 46.9375rem 3.0625rem #fff, 87.1875rem 47.3125rem #fff, 11.0625rem 3.4375rem #fff, 59.8125rem 103.25rem #fff, 118.9375rem 29rem #fff, 96.75rem 17.3125rem #fff, 31.125rem 66.0625rem #fff, 29.9375rem 78.625rem #fff, 123.625rem 21.4375rem #fff, 77.25rem 2.3125rem #fff, 28.75rem 19.75rem #fff, 79.3125rem 66.8125rem #fff, 10.5625rem 30.625rem #fff, 2.5rem 1px #fff, 123.6875rem 98.4375rem #fff, 82.8125rem 8.6875rem #fff, 80.3125rem 83rem #fff, 88.75rem 35.875rem #fff, 82.125rem 13rem #fff, 111.8125rem 14.375rem #fff, 109.125rem 23.125rem #fff, 47.5rem 8.5625rem #fff, 31.9375rem 2.875rem #fff, 77.0625rem 30.3125rem #fff, 94rem 64.125rem #fff, 57.4375rem 24rem #fff, 68.9375rem 30.8125rem #fff, 32.125rem 72.9375rem #fff, 31.4375rem 41.4375rem #fff, 38.4375rem 45.25rem #fff, 70.1875rem 76.8125rem #fff, 121.6875rem 38.4375rem #fff, 124.625rem 84.3125rem #fff, 103.25rem 4rem #fff, 77.5rem 16.4375rem #fff, 59.5rem 1.6875rem #fff, 123.625rem 35.375rem #fff, 70.6875rem 3.25rem #fff, 60.5625rem 10.4375rem #fff, 30.375rem 57.75rem #fff, 74.0625rem 3.8125rem #fff, 10.5625rem 96.75rem #fff, 87.4375rem 5.625rem #fff, 115.9375rem 3rem #fff, 25.3125rem 8rem #fff, 20.125rem 93.1875rem #fff, 56.6875rem 0px #fff, 5.75rem 50rem #fff, 103.9375rem 85.75rem #fff, 43.125rem 3.3125rem #fff, 123.25rem 96.0625rem #fff, 93.375rem 112.4375rem #fff, 50.6875rem 0px #fff, 4.875rem 8rem #fff, 98.0625rem 50.5rem #fff, 40.9375rem 1.4375rem #fff, 9.875rem 13.875rem #fff, 84.3125rem 32.875rem #fff, 46.875rem 101.9375rem #fff, 114.875rem 1.125rem #fff, 36.3125rem 6rem #fff, 54.5625rem 9.5rem #fff, 88.8125rem 2.8125rem #fff, 102.625rem 59.8125rem #fff, 84.9375rem 3.75rem #fff, 84.8125rem 52rem #fff, 44.3125rem 19.5625rem #fff, 80.6875rem 58.1875rem #fff, 36.5rem 3.3125rem #fff, 2.75rem 40.3125rem #fff, 110.5625rem 19.5rem #fff, 27.5625rem 92.3125rem #fff, 69.5625rem 0px #fff, 43.0625rem 57.1875rem #fff, 118.5625rem 0.25rem #fff, 85.75rem 53.9375rem #fff, 77.375rem 4.625rem #fff, 39.625rem 3.25rem #fff, 79.6875rem 7.3125rem #fff, 101.625rem 19.125rem #fff, 99.1875rem 64.625rem #fff, 46.5rem 17.8125rem #fff, 123.5625rem 13.5rem #fff, 34.8125rem 29.0625rem #fff, 24.75rem 0.375rem #fff, 11.1875rem 12.5rem #fff, 91.625rem 68.8125rem #fff;
+    opacity: 0.75;
+    animation: starDriftMid 42s linear infinite alternate;
+}
+
+.star-layer.star-big {
+    width: 2px;
+    height: 2px;
+    box-shadow: 4rem 6.4375rem #fff, 94.75rem 4.25rem #fff, 72.4375rem 100.8125rem #fff, 33.0625rem 36.125rem #fff, 50.9375rem 2.75rem #fff, 60.5rem 70.125rem #fff, 105.9375rem 0.875rem #fff, 67.625rem 33.25rem #fff, 87.75rem 1px #fff, 105.125rem 1.625rem #fff, 50.0625rem 2.125rem #fff, 37.0625rem 96.0625rem #fff, 105.25rem 43.25rem #fff, 52.8125rem 8.8125rem #fff, 120.125rem 2px #fff, 27.5rem 12.8125rem #fff, 20.0625rem 4.8125rem #fff, 37.5625rem 71.1875rem #fff, 89.8125rem 6.9375rem #fff, 91.1875rem 55.5rem #fff, 83.5625rem 95.3125rem #fff, 67.25rem 103.3125rem #fff, 102.75rem 60.375rem #fff, 2.6875rem 87.8125rem #fff, 112.25rem 88.9375rem #fff, 35.1875rem 74.125rem #fff, 88.4375rem 45.0625rem #fff, 100.6875rem 78.8125rem #fff, 45.0625rem 0.5625rem #fff, 124.875rem 90.9375rem #fff, 63.125rem 3.1875rem #fff, 124.875rem 34.4375rem #fff, 112.0625rem 1.6875rem #fff, 85.0625rem 111.0625rem #fff, 116.1875rem 46.25rem #fff, 22.25rem 26.4375rem #fff, 23.375rem 102.625rem #fff, 48rem 2px #fff, 121.1875rem 37.1875rem #fff, 119.25rem 6.25rem #fff, 21.1875rem 104.25rem #fff, 80.0625rem 0.5625rem #fff, 55.125rem 0px #fff, 41.4375rem 2rem #fff, 32.125rem 4.125rem #fff, 87.4375rem 1px #fff, 109.25rem 29.6875rem #fff, 0.5rem 7.5rem #fff, 91.4375rem 1px #fff, 32.375rem 4.1875rem #fff, 88.125rem 82.0625rem #fff, 86.375rem 15.9375rem #fff, 63.3125rem 103.375rem #fff, 19.6875rem 37.5rem #fff, 83.4375rem 37.5625rem #fff, 9rem 26.5rem #fff, 19.1875rem 5rem #fff, 57.625rem 50.5625rem #fff, 64.1875rem 19.875rem #fff, 43.5rem 2px #fff, 116.5rem 48.5625rem #fff, 53.75rem 1px #fff, 101.0625rem 9.875rem #fff, 50.8125rem 21.0625rem #fff, 25.75rem 23.5625rem #fff, 64.5rem 62.9375rem #fff, 114.4375rem 11.3125rem #fff, 71.1875rem 84.8125rem #fff, 68.8125rem 44.75rem #fff, 32.75rem 52.875rem #fff;
+    opacity: 0.6;
+    animation: starTwinkle 4.2s ease-in-out infinite alternate, starDriftBig 58s linear infinite;
+}
+
+@keyframes starDriftSmall {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-14.375rem, 8.125rem); }
+}
+
+@keyframes starDriftMid {
+    from { transform: translate(0, 0); }
+    to { transform: translate(11.875rem, 5.625rem); }
+}
+
+@keyframes starDriftBig {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-8.75rem, 4.375rem); }
+}
+
+@keyframes starTwinkle {
+    from { opacity: 0.3; }
+    to { opacity: 0.75; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .nebula-1,
+    .nebula-2 { opacity: 0.2; }
+}
+
+@media not all {
+    .bg-img,
+    .nebula,
+    .star-layer {
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+.bg-photo-layer {
+    position: absolute;
+    inset: -3%;
+    background-size: cover;
+    background-position: center 38%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: bgPhotoDrift 70s var(--ease) infinite alternate;
+    will-change: opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+@media not all {
+    .bg-photo-layer { animation: none; }
+}
+
+.star-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+
+.starfield.has-canvas .star-layer { display: none; }

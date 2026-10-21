@@ -1,0 +1,25 @@
+.admin-social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+    gap: 0.625rem;
+    margin-top: 0.375rem;
+}
+
+.admin-social-grid input { width: 100%; }
+
+.admin-social-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-social-row input {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.admin-social-move {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
