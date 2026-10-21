@@ -16,14 +16,7 @@ export function LanguageProvider({ children, initialLocale = "en" }) {
   const [locale, setLocaleState] = useState(normalize(initialLocale) || "en");
 
   useEffect(() => {
-    let preferred = null;
-    try {
-      preferred = normalize(window.localStorage.getItem("nebulon-lang"));
-    } catch (err) {}
-    if (!preferred) {
-      preferred = normalize(document.cookie.match(/(?:^|;\s*)nebulon-locale=(tr|en)(?:;|$)/)?.[1]);
-    }
-    setLocaleState(preferred || normalize(initialLocale) || "en");
+    setLocaleState(normalize(initialLocale) || "en");
   }, [initialLocale]);
 
   useEffect(() => {
