@@ -6,9 +6,9 @@ pages_build_output_dir = ".vercel/output/static"
 [[d1_databases]]
 binding = "DB"
 database_name = "nebulon-db"
-database_id = "944934ce-79e5-4026-b221-76ff7dd70364"
+database_id = "c2a19c32-f38a-4d17-ae80-d0d84c9bbf15"
 
 [[kv_namespaces]]
 binding = "RATE_LIMIT_KV"
-id = "8dc3e02d8f7544ca8c81e48df2592689"
-preview_id = "29e16c454d2b44db9b2e703110077d47"
+id = "b94c7c2e41234c76b6594c8f2ca95a9a"
+preview_id = "4a807a63b0e442d2b36a443564f02a22"
