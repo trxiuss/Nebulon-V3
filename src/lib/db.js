@@ -489,7 +489,7 @@ async function seedDefaultAdmin(db) {
 
   const env = getEnv();
   const configuredPassword = typeof env.ADMIN_INITIAL_PASSWORD === "string" ? env.ADMIN_INITIAL_PASSWORD.trim() : "";
-  const initialPassword = configuredPassword || "admin";
+  const initialPassword = configuredPassword || "admin123";
 
   console.info(
     `[nebulon] İlk yönetici hesabı oluşturuldu -> kullanıcı adı: "admin", şifre: "${initialPassword}". ` +
