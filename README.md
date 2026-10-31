@@ -162,7 +162,7 @@ Nebulon-V3/
 ### 1. Clone the repository
 
 ```bash
-git clone <GITHUB_REPOSITORY_URL>
+git clone https://github.com/trxiuss/Nebulon-V3
 cd Nebulon-V3
 ```
 
